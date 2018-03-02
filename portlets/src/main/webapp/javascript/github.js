@@ -1,4 +1,4 @@
-(function () {
+(function ($) {
 
   var apiURL = 'https://api.github.com/repos/kmenzli/sphinx-poc/commits?per_page=3&sha='
 
@@ -17,11 +17,11 @@
     },
 
     created: function () {
-      this.fetchData()
+      this.usingJuzu()
     },
 
     watch: {
-      currentBranch: 'fetchData'
+      currentBranch: 'usingJuzu'
     },
 
     filters: {
@@ -44,7 +44,29 @@
           console.log(self.commits[0].html_url)
         }
         xhr.send()
+      },
+      usingJuzu: function () {
+
+        var $githubDiv = $("#github");
+        var createURL = $githubDiv.jzURL("GithubIntegrationController.create");
+        $.ajax({
+          type: 'POST',
+          url: createURL,
+          success: function (data) {
+            // Reload project tree;
+            this.commits = []
+            console.log(data.id);
+          },
+          error: function (xhr) {
+            if (xhr.status >= 400) {
+              console.log(xhr.responseText);
+            } else {
+              alert('error while create new project. Please try again.');
+            }
+          }
+        });
+
       }
     }
   })
-})()
+})(jQuery);

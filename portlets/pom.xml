@@ -79,6 +79,12 @@
       <version>${juzu.version}</version>
       <scope>provided</scope>
     </dependency>
+    <!-- Commons project-->
+    <dependency>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>commons-juzu</artifactId>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.api</artifactId>

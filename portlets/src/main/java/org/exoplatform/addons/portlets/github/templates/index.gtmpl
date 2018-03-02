@@ -1,6 +1,6 @@
 <div id="github">
   <div class="UIGadgetThemes uiBox uiGithubIntegration">
-    <h6 class="gadgetTitle title center">&{title.Label} Github Commit's history</h6>
+    <h6 class="gadgetTitle title center">Github Commit's history</h6>
     <template v-for="branch in branches">
       <span class="uiRadio">
         <input type="radio" :id="branch" :value="branch" name="optionsRadios" v-model="currentBranch">
