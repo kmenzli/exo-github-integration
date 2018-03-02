@@ -32,7 +32,7 @@
   <version>1.0.x-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>eXo Github Integration</name>
-  <description>eXo Github Integration extension</description>
+  <description>eXo Github Integration extension (a simple PR demo)</description>
   
   <modules>
     <module>services</module>
