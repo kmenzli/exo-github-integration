@@ -40,6 +40,13 @@
         <depends>
             <module>vuejs</module>
         </depends>
+        <depends>
+            <module>juzu-ajax</module>
+        </depends>
+        <depends>
+            <module>jquery</module>
+            <as>jQuery</as>
+        </depends>
     </module>
     <module>
         <name>vuejs</name>
