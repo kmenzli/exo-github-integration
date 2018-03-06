@@ -1,10 +1,12 @@
 <div id="github">
   <div class="UIGadgetThemes uiBox uiGithubIntegration">
     <h6 class="gadgetTitle title center">Github Commit's history</h6>
+    <div class="content row-fluid">
     <template v-for="branch in branches">
       <span class="uiRadio">
         <input type="radio" :id="branch" :value="branch" name="optionsRadios" v-model="currentBranch">
-        <span>{{ branch }}</span>
+        <span></span>
+        <label class="radioLabel" :for="branch">{{ branch }}</label>
       </span>
     </template>
 
@@ -28,5 +30,6 @@
         </p>
       </a>
     </div>
+  </div>
   </div>
 </div>
