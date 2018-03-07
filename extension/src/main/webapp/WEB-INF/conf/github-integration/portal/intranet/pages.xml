@@ -30,6 +30,13 @@
       <portlet>
         <application-ref>github-integration-portlets</application-ref>
         <portlet-ref>GithubIntegrationControllerApplication</portlet-ref>
+        <preferences>
+          <preference>
+            <name>repositoryUrl</name>
+            <value>https://api.github.com/repos/kmenzli/sphinx-poc/commits?per_page=3&sha=</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
       </portlet>
       <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>

@@ -17,11 +17,11 @@
     },
 
     created: function () {
-      this.usingJuzu()
+      this.fetchCommits()
     },
 
     watch: {
-      currentBranch: 'usingJuzu'
+      currentBranch: 'fetchCommits'
     },
 
     filters: {
@@ -45,6 +45,29 @@
         }
         xhr.send()
       },
+      fetchCommits: function () {
+        var self = this
+        $.ajax({
+          type: 'GET',
+          url: apiURL.concat(self.currentBranch),
+          success: function (data) {
+            console.log(data);
+            // Reload project tree;
+            self.commits = data;
+            
+          },
+          error: function (xhr) {
+            if (xhr.status >= 400) {
+              console.log(xhr.responseText);
+            } else {
+              alert('error while create new project. Please try again.');
+            }
+          }
+        });
+
+
+      },
+      //--- should used to parametrized github repository
       usingJuzu: function () {
 
         var $githubDiv = $("#github");
