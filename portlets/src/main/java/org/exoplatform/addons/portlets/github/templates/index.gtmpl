@@ -2,34 +2,38 @@
   <div class="UIGadgetThemes uiBox uiGithubIntegration">
     <h6 class="gadgetTitle title center">Github Commit's history</h6>
     <div class="content row-fluid">
-    <template v-for="branch in branches">
-      <span class="uiRadio">
-        <input type="radio" :id="branch" :value="branch" name="optionsRadios" v-model="currentBranch">
-        <span></span>
-        <label class="radioLabel" :for="branch">{{ branch }}</label>
-      </span>
-    </template>
+      <template>
+        <!-- Branch name -->
+        <div>
+          Branche Name :
 
-    <div class="clearfix" />
-    <p>
-      <span>Current branch : </span>
-      <strong>{{ currentBranch }}</strong>
-    </p>
-
-
-    <div class="clearfix" />
-    <div class="list-group" v-for="record in commits">
-      <a :href="record.html_url" class="list-group-item active">
-        <h4 class="list-group-item-heading">{{ record.sha.slice(0, 7) }} - {{ record.commit.message | truncate }}</h4>
-        <p class="list-group-item-text">
-          <span class="author">
-            <a :href="record.author.html_url" target="_blank">{{ record.commit.author.name }}</a>
-          </span>
-          at
-          <span class="date">{{ record.commit.author.date | formatDate }}</span>
-        </p>
-      </a>
+          <br/>
+          <input type="text" class="span11" v-model="currentBranch" name="branchName">
+        </div>
+        <br/>
+        <!-- Button Load-->
+        <div>
+          <button type="submit" class="btn btn-primary" v-on:click="loadBranch();">Load commits</button>
+        </div>
+      </template>
+      <div class="clearfix" />
+      <p>
+        <span>Current branch : </span>
+        <strong>{{ currentBranch }}</strong>
+      </p>
+      <div class="clearfix" />
+      <div class="list-group" v-for="record in commits">
+        <a :href="record.html_url" class="list-group-item active">
+          <h4 class="list-group-item-heading">{{ record.sha.slice(0, 7) }} - {{ record.commit.message | truncate }}</h4>
+          <p class="list-group-item-text">
+            <span class="author">
+              <a :href="record.author.html_url" target="_blank">{{ record.commit.author.name }}</a>
+            </span>
+            at
+            <span class="date">{{ record.commit.author.date | formatDate }}</span>
+          </p>
+        </a>
+      </div>
     </div>
-  </div>
   </div>
 </div>

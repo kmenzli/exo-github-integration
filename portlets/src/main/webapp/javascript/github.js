@@ -45,6 +45,28 @@
         }
         xhr.send()
       },
+      loadBranch: function () {
+        var self = this
+        $.ajax({
+          type: 'GET',
+          url: apiURL.concat(self.currentBranch),
+          success: function (data) {
+            console.log(data);
+            // Reload project tree;
+            self.commits = data;
+
+          },
+          error: function (xhr) {
+            if (xhr.status >= 400) {
+              console.log(xhr.responseText);
+            } else {
+              alert('error while create new project. Please try again.');
+            }
+          }
+        });
+
+      },
+
       fetchCommits: function () {
         var self = this
         $.ajax({
@@ -54,7 +76,7 @@
             console.log(data);
             // Reload project tree;
             self.commits = data;
-            
+
           },
           error: function (xhr) {
             if (xhr.status >= 400) {
